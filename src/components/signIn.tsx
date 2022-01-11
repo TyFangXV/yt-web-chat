@@ -1,10 +1,6 @@
-
 import React from 'react'
-import { useRecoilValue } from 'recoil';
 import styles from '../../styles/components/Signin.module.css'
-import { userState } from '../state/auth';
 import supabase from '../supabase/initalization';
-import { User } from '../types/auth';
 
 
 async function SignInWithDiscord() {
@@ -17,15 +13,29 @@ async function SignInWithDiscord() {
     if(error) {
         console.log(error.message)
     }else{
-        console.log(user)
+        localStorage.setItem('userData', JSON.stringify(user))
     }
   }
+
+
+  async function SignUpWithDiscord() {
+
+    const { user, session, error } = await supabase.auth.signUp({
+      provider: 'discord',
+    })
+
+    if(error) {
+        console.log(error.message)
+    }
+
+  } 
 
 function SignIn() {
     return (
         <div className={styles.container}>
             <h1>Sign In</h1>
             <button onClick={SignInWithDiscord}>SignIn with discord</button> 
+            <button onClick={SignUpWithDiscord}>SignUp with discord</button> 
         </div>
     )
 }

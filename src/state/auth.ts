@@ -1,9 +1,14 @@
 import { User } from "../types/auth";
 import { atom } from "recoil";
 
-export const userState = atom({
+export const userState = atom<User>({
     key: "userState",
-    default: [] as User[]
+    default: {
+        id: "",
+        email: "",
+        name: "",
+        image: "",
+    }
 })
 
 

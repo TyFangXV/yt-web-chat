@@ -4,18 +4,36 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
+import Input from '../src/components/input'
+import { userState } from '../src/state/auth'
 import supabase from '../src/supabase/initalization'
+import { User } from '../src/types/auth'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
-  let router = useRouter();
+  const [_userStateValue, setUserStateValue] = useRecoilState<User>(userState);
   const [session, setSession] = useState<any>();
 
   useEffect(() => {
     setSession(supabase.auth.session())
+
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
     })
+
+    //if a user session is found, set the user state
+    if(session){
+      const user = supabase.auth.user();
+      const userData:User = {
+        id : `${user?.id}`,
+        name : user?.user_metadata.full_name,
+        email :`${user?.email}`,
+        image : `${user?.user_metadata.avatar_url}`,
+      }
+      setUserStateValue(userData)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
@@ -38,7 +56,7 @@ const Home = () => {
   }else{
     return (
       <div className={styles.container}>
-       <h1>hi</h1>
+       <Input/>
       </div>
     )    
   }
