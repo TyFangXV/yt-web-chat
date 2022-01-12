@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: #3F3F3F;
+    max-width: 20%;
+    min-height: 100vh;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_pic{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.headerContainer{
+    background-color: black;
+    min-height: 50px;
+}
+
+.icon{
+    margin-top: 2%;
+    font-size: 2rem;
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.profile{
+    margin-top: 2%;
+    margin-left: 10px;
+}
+
+.status{
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    height: 15px;
+    width: 15px;
+    background-color: #b8b8b8;
+    border-radius: 50%;
+    display: inline-block;
+}

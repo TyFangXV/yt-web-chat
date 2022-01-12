@@ -2,12 +2,10 @@
   "name": "cool-chat-app",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3303",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "electron-build": "npx tsc -p ./electron",
-    "electron-start": "yarn electron-build && electron ./electron/dist/main.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.29.1",
@@ -15,12 +13,12 @@
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
     "recoil": "^0.5.2"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
-    "electron": "^16.0.7",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
     "typescript": "4.5.4"

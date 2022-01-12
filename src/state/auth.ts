@@ -8,6 +8,7 @@ export const userState = atom<User>({
         email: "",
         name: "",
         image: "",
+        online : false
     }
 })
 
