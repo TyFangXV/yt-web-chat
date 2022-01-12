@@ -21,6 +21,11 @@
   align-items: center;
 }
 
+.input{
+  position: absolute;
+  bottom: 0;
+}
+
 .footer a {
   display: flex;
   justify-content: center;

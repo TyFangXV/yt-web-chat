@@ -1,10 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
+
+
 import Input from '../src/components/input'
 import { userState } from '../src/state/auth'
 import supabase from '../src/supabase/initalization'
@@ -56,7 +54,10 @@ const Home = () => {
   }else{
     return (
       <div className={styles.container}>
-       <Input/>
+        <span className={styles.input}>
+            <Input/>          
+        </span>
+
       </div>
     )    
   }
