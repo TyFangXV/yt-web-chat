@@ -1,9 +1,10 @@
-  export type User = {
+  export interface User {
     id: string
     email: string
     name: string
     image : string
     online : boolean
+    [key: string]: any
   }
 
 

@@ -47,7 +47,7 @@ const Home = () => {
       setUserStateValue({ ..._userStateValue, online: false });
     }
     );
-  }, []);
+  }, [_userStateValue, setUserStateValue]);
 
   if (!session) {
     return (

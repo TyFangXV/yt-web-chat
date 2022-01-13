@@ -2,18 +2,20 @@
 import React from 'react';
 import styles from '../styles/components/sidebar.module.css';
 import {IoMdPersonAdd} from 'react-icons/io';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { userState } from '../state/auth';
+import { popupValue } from '../state/nav';
 
 function Sidebar_header() {
     const user = useRecoilValue(userState);
-
+    const [showPopUp, setShowPopUp] = useRecoilState<boolean>(popupValue);
     
   return (
     <div>
         <div className={styles.header}>
             <span className={styles.profile}>
                 <img
+                    onClick={() => setShowPopUp(!showPopUp)}
                     src={user.image}
                     alt="avatar"
                     className={styles.profile_pic}

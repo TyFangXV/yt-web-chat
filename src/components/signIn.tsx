@@ -12,8 +12,6 @@ async function SignInWithDiscord() {
 
     if(error) {
         console.log(error.message)
-    }else{
-        localStorage.setItem('userData', JSON.stringify(user))
     }
   }
 
@@ -30,7 +28,7 @@ async function SignInWithDiscord() {
 
   } 
 
-function SignIn() {
+function SignIn(): JSX.Element {
     return (
         <div className={styles.container}>
             <h1>Sign In</h1>
