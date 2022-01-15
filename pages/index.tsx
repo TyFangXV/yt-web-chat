@@ -10,6 +10,7 @@ import { userState } from '../src/state/auth';
 import supabase from '../src/supabase/initalization';
 import { User } from '../src/types/auth';
 import Sidebar from '../src/components/sidebar';
+import { saveUser } from '../src/supabase/user';
 
 const Home = () => {
   const [_userStateValue, setUserStateValue] = useRecoilState<User>(userState);
@@ -32,6 +33,7 @@ const Home = () => {
         image: `${user?.user_metadata.avatar_url}`,
         online : true
       };
+      saveUser(userData);
       setUserStateValue(userData);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

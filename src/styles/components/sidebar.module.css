@@ -26,9 +26,9 @@
 }
 
 .icon {
-  margin-top: 2%;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: white;
+  margin-top: 10%;
   margin-right: 10px;
   cursor: pointer;
 }
