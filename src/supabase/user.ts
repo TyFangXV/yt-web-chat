@@ -11,3 +11,14 @@ export const saveUser = async (user:User) => {
         return "already logged in"
     }
 }
+
+export const checkIfUserIsValid = async(id:string)  =>{
+    const userExistence = await supabase.from("user").select("id").eq("id", id);
+    
+    if(userExistence === null){
+        return false;
+    }else{
+        return true;
+    }
+    
+}
