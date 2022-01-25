@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/components/Signin.module.css'
 import supabase from '../supabase/initalization';
-import { saveUser } from '../supabase/user';
+
 
 
 async function SignInWithDiscord() {

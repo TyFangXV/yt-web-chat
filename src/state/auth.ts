@@ -1,4 +1,4 @@
-import { User } from "../types/auth";
+import { FriendList, User } from "../types/auth";
 import { atom } from "recoil";
 
 export const userState = atom<User>({
@@ -11,5 +11,7 @@ export const userState = atom<User>({
         online : false
     }
 })
+
+
 
 

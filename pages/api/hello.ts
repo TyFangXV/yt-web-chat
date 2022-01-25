@@ -6,7 +6,7 @@ import { checkIfUserIsValid } from "../../src/supabase/user";
 
 const handler =  async(req: NextApiRequest, res: NextApiResponse) => {
     
-    res.send("hello")
+    res.status(404).send("hello")
 }
 
 export default handler;

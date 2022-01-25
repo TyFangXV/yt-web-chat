@@ -5,15 +5,16 @@ import { useRecoilState } from 'recoil';
 import styles from '../src/styles/Home.module.css';
 
 
-import Input from '../src/components/input';
+
 import { userState } from '../src/state/auth';
 import supabase from '../src/supabase/initalization';
-import { User } from '../src/types/auth';
+import { User, FriendList } from '../src/types/auth';
 import Sidebar from '../src/components/sidebar';
-import { saveUser } from '../src/supabase/user';
+import { getUserFriendList, saveUser } from '../src/supabase/user';
 
-const Home = () => {
+const Home = async() => {
   const [_userStateValue, setUserStateValue] = useRecoilState<User>(userState);
+  //const [FriendListStateData, SetFriendListData] = useRecoilState<FriendList[]>(FriendListState);
   const [session, setSession] = useState<any>();
 
   useEffect(() => {
@@ -35,6 +36,9 @@ const Home = () => {
       };
       saveUser(userData);
       setUserStateValue(userData);
+
+      //get the user friend list 
+
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);

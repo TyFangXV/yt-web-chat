@@ -22,3 +22,16 @@ export const checkIfUserIsValid = async(id:string)  =>{
     }
     
 }
+
+
+export const getUserFriendList = async(id:string) =>{
+    try {
+        const friendList = await supabase.from("friend_req").select("friendID").eq("user_id", id);
+        return friendList.data;        
+    } catch (error) {
+        console.log(error);
+        
+        return null;
+    }
+
+}
